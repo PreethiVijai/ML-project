@@ -23,6 +23,7 @@ food_sheets = [
 food = pd.read_excel(
     FOOD_FILE,
     sheet_name=food_sheets,
+    thousands=',', # Convert numbers stored as strings to ints/floats.
     # Index each DataFrame by the FIPS column.  This is a unique ID
     # for every county/region.  If this works properly, we should be
     # be able to match rows across DataFrames easily.
