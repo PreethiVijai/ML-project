@@ -49,6 +49,12 @@ for key, df in food.items():
         continue
     df.drop(df.index.difference(food["SUPPLEMENTAL"].index), inplace=True)
 
+# Merge all the food into one DataFrame, without repeating columns
+_l = list(food.values())
+all_food = _l.pop()
+for df in _l:
+    all_food = pd.concat([all_food, df[df.columns.difference(all_food.columns)]], axis=1)
+
 # EDUCATIONAL ATTAINMENT DATA.
 
 education = pd.read_excel(
