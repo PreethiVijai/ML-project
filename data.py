@@ -78,3 +78,6 @@ education.drop(education.index.difference(food["ACCESS"].index), inplace=True)
 # section above.
 for key, df in food.items():
     df.drop(df.index.difference(education.index), inplace=True)
+
+
+all = all_food.join(education.drop(columns=["State"]))
